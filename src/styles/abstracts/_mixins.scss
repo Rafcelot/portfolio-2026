@@ -1,0 +1,18 @@
+
+@use 'sass:map'; // requerimiento de sass 3.0 para usar map.get
+@use 'maps' as *;
+
+// mixin para generar los breakpoint
+@mixin respond-to($breakpoint) {  // respond-to es el nombre del mixin
+  $value: map.get($breakpoints, $breakpoint); // map-get($map, $key)
+
+  @if $value { // Apply @media only if the value exists.
+    @media (min-width: $value) { // min-width = “desde aquí hacia arriba”
+      @content; // lo que esta dentro del @include 'grid-template-columns: $columns;'
+    }
+  } @else { // this shows this message in the console
+    @error "El breakpoint `#{$breakpoint}` no existe en el mapa.";
+  }
+}
+
+

@@ -1,0 +1,27 @@
+// Abstracts
+
+
+// Base
+@use 'base/reset' as *;
+
+
+// Layout
+@use 'layout/grid';
+@use 'layout/pages';
+@use 'layout/responsive-colums';
+
+// utilities
+@use 'utilities/typography';
+@use 'utilities/text';
+
+html, body {
+  background-color: rgb(255, 255, 255) ;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  
+}
+
+
+
+

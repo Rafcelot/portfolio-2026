@@ -1,0 +1,99 @@
+@use '../../../styles/abstracts/variables' as *;
+
+@use '../../../styles/abstracts/functions' as *;
+
+.moodboard-layout {
+  display: flex;
+  flex-direction: column;
+  padding-top: $space-xxl;
+  gap: $space-xxl;
+  padding-bottom: $space-xxl; // POR AHORA
+}
+
+@media (max-width: 599px) {
+  .moodboard-layout {
+    padding-top: 24px;
+    gap: $space-lg;
+  }
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
+// SECTIONS
+.user-flow {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+  }
+}
+
+.ux-decisions {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xl;
+  }
+}
+
+.final-ui {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+  }
+
+  &__diagram {
+    background-color: get-color(surface, separate);   
+    width: 100%; 
+    overflow-x: auto ;
+}
+
+  &__img { // Para centrar la imagen se necesita pasar el display: block. lo hice el reset
+    margin:  auto; // reparte el espacio sobrante a ambos lados centrando el elemento
+    height: 500px;
+    max-width: none;  // Evita que la imagen se adapte al contenedor / El navegador usa el ancho real de la imagen
+  }
+
+  @media (max-width: 599px) {
+    &__img {
+      height: 400px;
+    }
+  }
+}
+
+// DIAGRAM STYLES
+.diagram-surface {
+  background-color: get-color(surface, separate);
+  width: 100%;
+  overflow-x: auto;
+}
+
+.diagram-image { // Para centrar la imagen se necesita pasar el display: block. lo hice el reset
+  margin: 0 auto; // reparte el espacio sobrante a ambos lados centrando el elemento
+  max-width: none; // Evita que la imagen se adapte al contenedor / El navegador usa el ancho real de la imagen
+  height: 500px;
+}
+
+@media (max-width: 599px) {
+  .diagram-image {
+    height: 400px;
+  }
+}
+

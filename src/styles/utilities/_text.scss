@@ -1,0 +1,6 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/functions" as *;
+
+.text-primary   { color: get-color(text, primary); }
+.text-secondary { color: get-color(text, secondary); }
+.text-inverse   { color: get-color(text, inverse); }

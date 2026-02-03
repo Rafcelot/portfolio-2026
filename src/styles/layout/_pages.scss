@@ -1,0 +1,9 @@
+@use '../abstracts/maps' as *;
+
+@use '../abstracts/variables' as *;
+
+.page__content {
+  grid-column: 2 / 3;
+  background-color: rgb(255, 255, 255);
+}
+

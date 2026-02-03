@@ -1,0 +1,28 @@
+@use "../../styles/abstracts/variables.scss" as *;
+
+
+.style-guide {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+  padding-top: $space-xxl;
+}
+
+
+.cards-grid {
+  display: grid;  
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-xl;
+  padding: $space-lg 0;
+
+
+  @media(max-width: 1040px) {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: $space-md;
+
+  }
+}
+
+

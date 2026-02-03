@@ -1,0 +1,73 @@
+@use 'sass:map';
+@use '../abstracts/maps' as *;
+
+// Heading
+@each $tag, $values in $headings {
+  #{$tag}, // Aplica directamente a la etiqueta h1, h2, etc.
+  .text-#{$tag} {
+    font-size: map.get(map.get($values, desktop), size);
+    line-height: map.get(map.get($values, desktop), line);
+    font-family: map.get($values, family);
+    font-weight: map.get($values, weight);
+    color: map.get($values, color);
+  }
+}
+
+// Mobile
+@media (max-width: 599px) {
+  @each $tag, $values in $headings {
+    #{$tag},
+    .text-#{$tag} {
+      font-size: map.get(map.get($values, mobile), size);
+      line-height: map.get(map.get($values, mobile), line);
+    }
+  }
+}
+
+// Body
+
+// Sizes
+@each $key, $values in $font-sizes {
+  .text-#{$key} {
+    font-size: map.get($values, size);
+    line-height: map.get($values, line);
+  }
+}
+
+// Family
+@each $name, $family in $font-families {
+  .font-#{$name} {
+    font-family: $family;
+  }
+}
+
+// Pesos
+@each $name, $weight in $font-weights {
+  .font-#{$name} {
+    font-weight: $weight;
+  }
+}
+
+
+/* Emphasis HIGH */
+.body-l--emphasis-high {
+  font-family: map.get($font-families, display);
+  font-weight: map.get($font-weights, bold);
+
+  @media (max-width: 904px) {
+    font-family: map.get($font-families, text);
+    font-weight: map.get($font-weights, regular);
+  }
+}
+
+/* Emphasis MEDIUM */
+.body-l--emphasis-medium {
+  font-family: map.get($font-families, display);
+  font-weight: map.get($font-weights, medium);
+
+  @media (max-width: 904px) {
+    font-family: map.get($font-families, text);
+    font-weight: map.get($font-weights, regular);
+  }
+}
+

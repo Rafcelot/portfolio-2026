@@ -1,0 +1,111 @@
+@use "../../../styles/abstracts/variables.scss" as *;
+
+
+.color-card {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  flex: 0 0 264px; // lo que permite dar tamaño al ancho cuando usa overflow-x
+  justify-content: space-between; // esto me permite que cuando el texto sea mayor se distribuya mejor el espacio.
+
+  padding-top: $space-md;
+  box-shadow: $overlay-lg;
+  border-radius: $radius-lg;
+
+  &__header{
+    // background-color: pink;
+    display: flex;
+    flex-direction: column;
+    padding-inline: $space-md;
+    gap: $space-xs;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__gray-colors {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    
+    height: 200px;
+    border-radius: 0 0 $radius-lg $radius-lg;
+    
+  }
+
+  &__layer-light {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0 0 $radius-lg $radius-lg;
+    height: 200px;
+  }
+
+  &__light-texts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $space-xs;
+  }
+
+  &__layer-dark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    border-radius: 0 0 $radius-lg $radius-lg;
+    background-color: blue;
+    height: 88%;
+    width: 88%;  
+  }
+
+   &__dark-texts {
+    // background-color: green;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $space-xs;
+  }
+
+  &__layer-regular {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: $space-xs;
+
+    border-radius: 0 0 $radius-lg $radius-lg;
+    background-color: white;
+    height: 85%;
+    width: 85%;   
+  }
+
+  &__regular-texts {
+    // background-color: pink;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 85px;
+    gap: $space-xs;
+  }
+
+  // &__label-dark {    
+   
+  // }
+
+  &__label-regular {
+    // margin-top: 12px;
+    padding: 10px 0;
+    
+  }
+
+  &__label-light {
+    padding: 10px 0;
+    // margin-bottom: 5px;
+  }
+}
+
+

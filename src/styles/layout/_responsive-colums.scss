@@ -1,0 +1,16 @@
+@use '../abstracts/maps' as *;
+@use '../abstracts/mixins' as *;
+
+@use 'sass:map'; // requerimiento de sass 3.0 para usar map.get
+
+// Este codigo difine columnas para diferentes  (breakpoints)  
+.responsive-colums {
+  display: grid;
+  gap: 24px;
+
+  @each $key, $bp in $breakpoints {
+    @include respond-to($key) {
+      grid-template-columns: repeat(map.get($columns, $key), 1fr);
+    }
+  }
+}
