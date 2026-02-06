@@ -1,0 +1,31 @@
+// import CheckIcon from '@/assets/icons/brush.svg'
+import './double.scss'
+
+function DoubleIcon({ className }) {
+  return (
+    <svg
+      className={className}
+      width="44"
+      height="16"
+      viewBox="0 0 44 16"
+      fill="none"
+      >
+      <path
+        d="M4.39616 9.26346C6.79796 6.47184 12.2393 1.02004 14.5416 0.902591C15.9649 0.766471 13.1283 5.81924 6.40596 11.3488M0.900024 14.7876C1.45225 12.8376 1.1038 13.7959 1.29203 11.5503C1.39314 11.2174 1.59459 10.186 2.85537 9.67182C4.28805 9.08689 5.33884 9.97051 5.61028 10.3859C6.41062 11.2531 6.50318 12.3304 5.61028 13.561C4.71739 14.7915 2.06981 15.0972 0.900024 14.7876Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M30.9 3.8999H41.9M30.9 7.8999H41.9M30.9 11.8999H35.6143"
+        stroke="currentColor"
+        strokeWidth="2.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export default DoubleIcon;

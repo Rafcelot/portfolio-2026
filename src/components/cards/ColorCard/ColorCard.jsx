@@ -5,26 +5,28 @@ import "./color-card.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 
-// UI
+// UI Icons
 import BrushIcon from "@/components/ui/icons/BrushIcon/BrushIcon.jsx";
-import PaintbrushIcon from "@/components/ui/icons/PaintbrushIcon/PaintbrushIcon.jsx"
-import TextIcon from "@/components/ui/icons/TextIcon/TextIcon.jsx"
+import PaintbrushIcon from "@/components/ui/icons/PaintbrushIcon/PaintbrushIcon.jsx";
+import TextIcon from "@/components/ui/icons/TextIcon/TextIcon.jsx";
+import DoubleIcon from "@/components/ui/icons/Double/Double.jsx";
+
+// Data
+import { variantConfig } from "./data/colorCardsData.js";
 
 
-
-
+// ─────────────────────────────────────
+// Variant components
+// ─────────────────────────────────────
 
 function InterfaceColor({ colors }) {
   const { regular, light, dark } = colors;
 
   return (
-    
     <div
-    
       className="color-card__layer-light"
       style={{ backgroundColor: light, color: dark }}
     >
-      <div></div>
       <div
         className="color-card__layer-dark"
         style={{ backgroundColor: dark, color: "white" }}
@@ -34,17 +36,19 @@ function InterfaceColor({ colors }) {
           style={{ backgroundColor: regular, color: "white" }}
         >
           <div className="color-card__regular-texts">
-            <p className="color-card__label-dark text-m font-medium font-display">
+            <p className="color-card__label-regular text-m font-medium font-display">
               Regular
             </p>
-            <PaintbrushIcon  />
+
+            <PaintbrushIcon />
           </div>
         </div>
 
         <div className="color-card__dark-texts">
-          <p className="color-card__label-regular text-m font-medium font-display">
+          <p className="color-card__label-dark text-m font-medium font-display">
             Dark
           </p>
+
           <TextIcon className="check-icon" />
         </div>
       </div>
@@ -53,97 +57,80 @@ function InterfaceColor({ colors }) {
         <p className="color-card__label-light text-m font-medium font-display">
           Light
         </p>
+
         <BrushIcon className="check-icon" />
       </div>
     </div>
-  )  
-}
-
-function Graycolors({ colors }) {
-  const { regular, light, dark } = colors;
-
-  return (
-    <div className="color-card__gray-colors">
-
-
-    </div>
-  )
+  );
 }
 
 
-
-function ColorCard({ title, description, colors }) {
-  const { regular, light, dark } = colors;
+function GrayColor({ colors, icon: Icon }) {
+  const { regular, iconColor } = colors;
 
   return (
-    <div className="color-card">
-
-      {/* Header */}
-      <div className="color-card__header">
-        <div className="color-card__title">
-          <h3 className="text-l">{title}</h3>
-          <FontAwesomeIcon icon={faCode} />
-        </div>
-
-        <p className="font-display text-m font-medium text-secondary">
-          {description}
-        </p>
-      </div>
-
-      {/* <InterfaceColor 
-        colors={colors} 
-      /> */}   
-
-      <Graycolors 
-        colors={colors} 
-      />
-
-      {/* ejemplo borrar */}
-      {/* <div className={`card card--${variant}`}>
-      {variant === "compact" ? (
-        <CompactContent title={title} />
-      ) : (
-        <DefaultContent title={title} description={description} />
+    <div
+      className="color-card__gray-colors"
+      style={{
+        backgroundColor: regular,
+        color: iconColor,
+      }}
+    >
+      {Icon && (
+        <span className="color-card__gray-colors-icon">
+          <Icon />
+        </span>
       )}
-      </div> */}
+    </div>
+  );
+}
 
-      {/* Colors */}
-      {/* <div
-        className="color-card__layer-light"
-        style={{ backgroundColor: light, color: dark }}
-      >
+
+// ─────────────────────────────────────
+// Main component
+// ─────────────────────────────────────
+
+function ColorCard({ variant }) {
+  // Get configuration based on variant
+  const config = variantConfig[variant];
+
+  // Guard clause
+  if (!config) return null;
+
+  // Variant → Component map
+  const VariantComponent = {
+    interface: InterfaceColor,
+    gray: GrayColor,
+  };
+
+  const ColorVariant = VariantComponent[variant];
+
+  return (
+    <div className="cards-grid">
+      {config.map((item) => (
         <div
-          className="color-card__layer-dark"
-          style={{ backgroundColor: dark, color: "white" }}
+          className="color-card"
+          key={item.id}
         >
-          <div
-            className="color-card__layer-regular"
-            style={{ backgroundColor: regular, color: "white" }}
-          >
-            <div className="color-card__regular-texts">
-              <p className="color-card__label-dark text-m font-medium font-display">
-                Regular
-              </p>
-              <PaintbrushIcon  />
+          {/* Header */}
+          <div className="color-card__header">
+            <div className="color-card__title">
+              <h3 className="text-l">
+                {item.title}
+              </h3>
+
+              <FontAwesomeIcon icon={faCode} />
             </div>
-          </div>
 
-          <div className="color-card__dark-texts">
-            <p className="color-card__label-regular text-m font-medium font-display">
-              Dark
+            <p className="font-display text-m font-medium text-secondary">
+              {item.description}
             </p>
-            <TextIcon className="check-icon" />
           </div>
-        </div>
 
-        <div className="color-card__light-texts">
-          <p className="color-card__label-light text-m font-medium font-display">
-            Light
-          </p>
-          <BrushIcon className="check-icon" />
+          {/* Colors */}
+          <ColorVariant colors={item.colors} icon={item.icon} />
         </div>
-      </div> */}
-      
+      ))}
     </div>
   );
 }

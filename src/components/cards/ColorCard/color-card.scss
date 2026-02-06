@@ -29,11 +29,15 @@
 
   &__gray-colors {
     background-color: black;
-    display: flex;
-    flex-direction: column;
-    
+    position: relative;   
     height: 200px;
     border-radius: 0 0 $radius-lg $radius-lg;
+  }
+
+  &__gray-colors-icon {
+    position: absolute;
+    bottom: $space-md;
+    right: $space-md;
     
   }
 
@@ -46,6 +50,8 @@
   }
 
   &__light-texts {
+    // background-color: red;
+    height: $space-xl;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -59,11 +65,12 @@
     
     border-radius: 0 0 $radius-lg $radius-lg;
     background-color: blue;
-    height: 88%;
+    height: 76%;
     width: 88%;  
   }
 
    &__dark-texts {
+    height: $space-xl;
     // background-color: green;
     display: flex;
     flex-direction: row;
@@ -79,16 +86,17 @@
 
     border-radius: 0 0 $radius-lg $radius-lg;
     background-color: white;
-    height: 85%;
+    height: 67%;
     width: 85%;   
   }
 
   &__regular-texts {
     // background-color: pink;
+    height: $space-xl;
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 85px;
+    margin-top: 52px;
     gap: $space-xs;
   }
 
