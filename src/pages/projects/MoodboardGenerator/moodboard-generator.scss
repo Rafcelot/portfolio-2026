@@ -23,23 +23,53 @@
   gap: $space-xs;
 }
 
+// HEADER
+.header {
+  display: flex;  
+  flex-direction: column;
+  gap: $space-sm;
+  max-width: 700px;
+}
+
+// CONTENT
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+  padding-left: $space-md;
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+    max-width: 700px;
+  }
+}
+
 // SECTIONS
+
+.initial-concept {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+}
+
+.usability-insights {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+}
+
 .user-flow {
   display: flex;
   flex-direction: column;
   gap: $space-lg;
-
-  &__header {
-    display: flex;
-    flex-direction: column;
-    gap: $space-xs;
-  }
 }
 
 .ux-decisions {
   display: flex;
   flex-direction: column;
-  gap: $space-lg;
+  gap: $space-xl;
 
   &__list {
     display: flex;
@@ -52,12 +82,6 @@
   display: flex;
   flex-direction: column;
   gap: $space-lg;
-
-  &__header {
-    display: flex;
-    flex-direction: column;
-    gap: $space-xs;
-  }
 
   &__diagram {
     background-color: get-color(surface, separate);   
@@ -76,6 +100,12 @@
       height: 400px;
     }
   }
+}
+
+.key-learning {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
 }
 
 // DIAGRAM STYLES

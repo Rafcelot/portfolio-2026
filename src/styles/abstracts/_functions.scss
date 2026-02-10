@@ -18,3 +18,9 @@
 
   @return $value;
 }
+
+
+// funcion para font-family
+@function font-family($key) {
+  @return map.get($font-families, $key);
+}
